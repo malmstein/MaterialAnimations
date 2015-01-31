@@ -21,6 +21,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.view.ViewCompat;
 import android.transition.Transition;
+import android.view.animation.OvershootInterpolator;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -44,6 +46,7 @@ public class DetailActivity extends Activity {
 
     private ImageView mHeaderImageView;
     private TextView mHeaderTitle;
+    private ImageButton mFab;
 
     private Item mItem;
 
@@ -57,6 +60,7 @@ public class DetailActivity extends Activity {
 
         mHeaderImageView = (ImageView) findViewById(R.id.imageview_header);
         mHeaderTitle = (TextView) findViewById(R.id.textview_title);
+        mFab = (ImageButton) findViewById(R.id.button_fab);
 
         // BEGIN_INCLUDE(detail_set_view_name)
         /**
@@ -68,7 +72,50 @@ public class DetailActivity extends Activity {
         ViewCompat.setTransitionName(mHeaderTitle, VIEW_NAME_HEADER_TITLE);
         // END_INCLUDE(detail_set_view_name)
 
+        mFab.setTranslationY(2 * getResources().getDimensionPixelOffset(R.dimen.btn_fab_size));
+        getWindow().getEnterTransition().addListener(new Transition.TransitionListener() {
+            @Override
+            public void onTransitionStart(Transition transition) {
+            }
+
+            @Override
+            public void onTransitionEnd(Transition transition) {
+                mFab.animate()
+                        .translationY(0)
+                        .setInterpolator(new OvershootInterpolator(1.f))
+                        .setStartDelay(300)
+                        .setDuration(400)
+                        .start();
+            }
+
+            @Override
+            public void onTransitionCancel(Transition transition) {
+            }
+
+            @Override
+            public void onTransitionPause(Transition transition) {
+            }
+
+            @Override
+            public void onTransitionResume(Transition transition) {
+            }
+        });
+
         loadItem();
+    }
+
+    @Override
+    public void onBackPressed() {
+        mFab.animate()
+                .translationYBy(2 * getResources().getDimensionPixelOffset(R.dimen.btn_fab_size))
+                .setInterpolator(new OvershootInterpolator(1.f))
+                .setDuration(400)
+                .withEndAction(new Runnable() {
+                    @Override
+                    public void run() {
+                        finishAfterTransition();
+                    }
+                });
     }
 
     private void loadItem() {

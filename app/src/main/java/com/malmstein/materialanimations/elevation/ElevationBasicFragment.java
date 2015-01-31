@@ -18,7 +18,6 @@ package com.malmstein.materialanimations.elevation;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -54,16 +53,12 @@ public class ElevationBasicFragment extends Fragment {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 int action = motionEvent.getActionMasked();
-                /* Raise view on ACTION_DOWN and lower it on ACTION_UP. */
                 switch (action) {
                     case MotionEvent.ACTION_DOWN:
                         view.animate().setDuration(100).scaleX(1.2f).scaleY(1.3f).translationZ(120);
-                        Log.d(TAG, "ACTION_DOWN on view.");
                         break;
                     case MotionEvent.ACTION_UP:
-                        Log.d(TAG, "ACTION_UP on view.");
                         view.animate().setDuration(100).scaleX(1).scaleY(1).translationZ(0);
-                        view.setTranslationZ(0);
                         break;
                     default:
                         return false;

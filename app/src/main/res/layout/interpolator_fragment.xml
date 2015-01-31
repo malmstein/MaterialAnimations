@@ -77,7 +77,7 @@ limitations under the License.
             android:layout_below="@+id/animateButton"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
-            android:background="@color/purple"
+            android:background="@color/color_primary_dark"
             android:minHeight="100dp"
             android:minWidth="100dp" />
 

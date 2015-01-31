@@ -27,7 +27,7 @@
             android:layout_width="@dimen/shape_size"
             android:layout_height="@dimen/shape_size"
             android:layout_gravity="center"
-            android:background="@color/color_1"/>
+            android:background="@color/dark_red"/>
 
     <LinearLayout
             android:layout_margin="16dp"

@@ -15,5 +15,8 @@
  limitations under the License.
 -->
 <resources>
-    <string name="app_name">Interpolator</string>
+    <string name="app_name">MaterialAnimations</string>
+    <string name="activity_transition">Activity Transitions</string>
+    <string name="activity_interpolator">Interpolator</string>
+    <string name="activity_elevation">Elevation</string>
 </resources>

@@ -5,4 +5,7 @@
   <dimen name="shape_size">96dp</dimen>
   <dimen name="elevation_step">8dp</dimen>
   <dimen name="grid_spacing">4dp</dimen>
+  <dimen name="btn_fab_size">56dp</dimen>
+  <dimen name="btn_fab_margins">16dp</dimen>
+
 </resources>

@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2014 The Android Open Source Project
+<?xml version="1.0" encoding="utf-8"?><!-- Copyright (C) 2014 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,44 +13,63 @@
      limitations under the License.
 -->
 
+
+
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
+  android:layout_width="match_parent"
+  android:layout_height="match_parent">
 
-    <LinearLayout
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:orientation="vertical">
 
-        <com.malmstein.materialanimations.activityscenetransitionbasic.SquareFrameLayout
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content">
+  <RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-            <ImageView
-                  android:id="@+id/imageview_header"
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent"
-                  android:scaleType="centerCrop" />
+    <com.malmstein.materialanimations.activityscenetransitionbasic.SquareFrameLayout
+      android:id="@+id/imageview_frame"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
 
-        </com.malmstein.materialanimations.activityscenetransitionbasic.SquareFrameLayout>
+      <ImageView
+        android:id="@+id/imageview_header"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
 
-        <TextView
-              android:id="@+id/textview_title"
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:background="?android:attr/colorPrimary"
-              android:theme="@android:style/Theme.Material"
-              android:textAppearance="@android:style/TextAppearance.Material.Title"
-              android:maxLines="2"
-              android:padding="16dp" />
+    </com.malmstein.materialanimations.activityscenetransitionbasic.SquareFrameLayout>
 
-        <TextView
-              android:layout_width="match_parent"
-              android:layout_height="wrap_content"
-              android:padding="16dp"
-              android:text="@string/bacon_ipsum"
-              android:textAppearance="@android:style/TextAppearance.Material.Body1" />
+    <TextView
+      android:layout_below="@id/imageview_frame"
+      android:id="@+id/textview_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:background="?android:attr/colorPrimary"
+      android:theme="@android:style/Theme.Material"
+      android:textAppearance="@android:style/TextAppearance.Material.Title"
+      android:maxLines="2"
+      android:padding="16dp" />
 
-    </LinearLayout>
+    <TextView
+      android:layout_below="@id/textview_title"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:padding="16dp"
+      android:text="@string/bacon_ipsum"
+      android:textAppearance="@android:style/TextAppearance.Material.Body1" />
+
+    <ImageButton
+      android:id="@+id/button_fab"
+      android:layout_width="@dimen/btn_fab_size"
+      android:layout_height="@dimen/btn_fab_size"
+      android:layout_alignRight="@id/imageview_frame"
+      android:layout_below="@id/textview_title"
+      android:layout_marginTop="@dimen/btn_fab_margins"
+      android:background="@drawable/btn_fab_default"
+      android:layout_marginRight="@dimen/btn_fab_margins"
+      android:elevation="@dimen/elevation_step"
+      android:textSize="28sp" />
+
+  </RelativeLayout>
+
 
 </ScrollView>
